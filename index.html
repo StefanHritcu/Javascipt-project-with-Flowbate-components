@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="antialiased bg-gray-50 dark:bg-gray-900">
+        <nav class="bg-white border-b border-gray-200 px-4 py-2.5 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50">
+          <div class="flex flex-wrap justify-between items-center">
+            <div class="flex justify-start items-center">
+              <button
+                data-drawer-target="drawer-navigation"
+                data-drawer-toggle="drawer-navigation"
+                aria-controls="drawer-navigation"
+                class="p-2 mr-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="hidden w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="sr-only">Toggle sidebar</span>
+              </button>
+              <a href="https://flowbite.com" class="flex items-center justify-between mr-4">
+                <img
+                  src="https://flowbite.s3.amazonaws.com/logo.svg"
+                  class="mr-3 h-8"
+                  alt="Flowbite Logo"
+                />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+              </a>
+          </div>
+        </nav>
+    
+        <!-- Sidebar -->
+    
+        <aside
+          class="fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+          aria-label="Sidenav"
+          id="drawer-navigation"
+        >
+          <div class="overflow-y-auto py-5 px-3 h-full bg-white dark:bg-gray-800">
+            <ul class="space-y-2">
+
+              <li>
+                <button
+                onclick="navigateTo('pagina-api')"
+                  class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                  </svg>
+
+                  <span class="ml-3">Dati API</span>
+                </button>
+              </li>
+
+              <li>
+                
+                <button
+                onclick="navigateTo('pagina-scroll')"
+                  class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m9 9 10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 0 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z" />
+                </svg>
+                  <span class="ml-3">Scroll</span>
+                </button>
+              </li>
+              
+              <li>
+                <button
+                onclick="navigateTo('pagina-modulo')"
+                class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                </svg>
+                  <span class="ml-3">Modulo</span>
+                </button>
+              </li>
+
+            </ul>
+          </div>
+          
+        </aside>
+    
+        
+        <main class="p-4 md:ml-64 h-auto pt-20" id="routing-outlet">
+
+            <!--Pagina API-->
+            <section id="pagina-api" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+
+            </section>
+
+            <!--Pagina SCROLL-->
+            <section id="pagina-scroll" class="hidden relative text-gray-300 p-5">
+                <h1 class="p-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aliquid, esse atque harum voluptatem minima nam eaque laboriosam? Fuga minus in soluta eum praesentium beatae consectetur sapiente eveniet inventore ipsa veniam exercitationem illum asperiores tenetur saepe doloribus pariatur nostrum fugiat temporibus, sint nulla! Mollitia dignissimos doloremque omnis, cumque soluta earum saepe, consequuntur velit porro eaque corporis laudantium inventore fugit magni deleniti recusandae dolores commodi nihil similique libero consectetur quibusdam exercitationem quo ex. Cumque neque iure beatae suscipit nulla minima consequatur incidunt a corporis facere excepturi voluptas, vero voluptate hic amet nihil repellat enim! At aliquam ullam, tempora aspernatur laudantium suscipit cum hic quas eligendi amet delectus ut fugiat cumque odit velit modi molestias quos a, adipisci magni nam reprehenderit inventore. Odio explicabo provident delectus, labore possimus velit distinctio quibusdam itaque omnis aperiam ipsam illo aspernatur earum dolorum laudantium. Alias non veritatis quia ab? Quos, quasi eum earum quae commodi sed quaerat error enim repudiandae eius sequi voluptate iure ipsam consectetur sapiente nihil perspiciatis alias eos optio? Assumenda nesciunt nihil molestiae quidem aut architecto quaerat accusamus voluptates, quae quasi odio suscipit numquam ut laudantium perspiciatis aspernatur! Cumque explicabo, aut facere iste perspiciatis est at laudantium aspernatur tempora, possimus nostrum voluptas dolores obcaecati eos nemo saepe. Deleniti deserunt harum accusamus non? Numquam nesciunt natus eum, doloribus dolore quis iure corporis? Dolores laudantium nulla sunt, molestias ea cumque obcaecati alias doloremque quod facere nobis. Quam debitis enim doloribus consequuntur, distinctio impedit dignissimos culpa ullam nostrum eaque, molestiae labore similique obcaecati nulla sapiente voluptatibus explicabo corrupti, repellendus ipsum magnam rem facilis unde tempora dicta. Delectus, beatae omnis perspiciatis molestiae ex nisi cupiditate magni et tempore enim rerum provident dolorem vero quia laboriosam quisquam corporis. Fugiat voluptatibus, dolorem labore nostrum reprehenderit, odio modi eum quibusdam hic dolorum omnis officia quis blanditiis earum quod sint voluptate molestiae rerum iusto deleniti voluptatem facere eligendi numquam. Voluptatum, fugit ex. Possimus perferendis, praesentium tempora dolorum aut quisquam fugit obcaecati illo quia pariatur provident, eaque quos vero, sunt maxime corporis? Repellendus optio distinctio magni cumque eum cum natus omnis inventore architecto laborum. Incidunt libero laborum odio cum ut accusamus provident error iusto dolorum voluptas voluptate unde eum illum a doloremque et, quae iste, architecto distinctio? Obcaecati illo non magnam atque laborum totam, reiciendis dolorum sunt nam dolorem eligendi, voluptatum odio, soluta placeat facilis necessitatibus accusantium incidunt quibusdam facere tenetur. Illum quisquam quibusdam eos quaerat est deserunt labore possimus aliquam amet quis architecto accusamus reiciendis non a iste officiis impedit quod ea, rerum natus dolore rem dignissimos quos. Ullam quod assumenda natus vero libero magnam voluptates animi pariatur, amet itaque! Minima labore in provident sunt, optio ex tempore ratione, dolor sint repellendus illum adipisci unde quisquam molestias quam qui vel possimus, delectus laborum nesciunt aut rem? Adipisci ab atque natus inventore, rem ipsum libero iste eveniet error facilis, tempora iusto nostrum ad! Nemo, nihil facilis? In architecto maiores nemo, modi iste illo ratione accusantium labore voluptates, quidem vero voluptatibus aliquam? Eaque fuga distinctio quos commodi perspiciatis tenetur maxime adipisci ipsam esse architecto alias illo voluptatum dolor, quaerat porro suscipit voluptates laborum quisquam reprehenderit consectetur, sit ad expedita recusandae? Blanditiis placeat dolore doloremque nesciunt possimus ex harum eligendi asperiores accusamus quam mollitia pariatur, sit, doloribus, quo dolores. Necessitatibus iure quibusdam consequatur tempore. Ut qui perspiciatis amet vitae non dignissimos esse explicabo ex ullam dolorem natus, eum impedit modi eius quibusdam mollitia ducimus labore ad atque quas, iusto, assumenda excepturi? Repellat consectetur minima sequi sapiente laborum ipsum necessitatibus, non dolorem eveniet, facilis sunt temporibus ab asperiores commodi quisquam reprehenderit. Eos, voluptatem? Minima cumque cum eius repellat quisquam accusamus excepturi fuga voluptate vel autem reiciendis hic voluptatibus necessitatibus, suscipit et fugit numquam perspiciatis quidem ipsum illum, impedit tempore soluta? Ipsa quisquam omnis officiis, dolorem in deserunt corporis iste vel esse magnam eaque autem sint perspiciatis non doloremque, beatae sapiente sunt tempore unde, a nisi incidunt veritatis. Quos voluptas soluta consectetur quas, labore quis esse amet aspernatur nesciunt aperiam, perspiciatis quam inventore aliquid eligendi ea hic quasi, praesentium dolore a asperiores? Obcaecati, esse placeat amet dolorum architecto excepturi ratione accusantium nisi. Consequatur harum illo a, quidem error, dolor rem dolore perferendis laudantium, tempora cupiditate nam quae sit provident officia nemo facilis velit cumque accusantium neque? Perferendis corporis delectus laboriosam quos maxime vel accusantium nisi minus aperiam aliquam ratione facere ab laudantium maiores quas nemo ipsa dolore, adipisci, quam explicabo quod repellendus recusandae dolor. Voluptates obcaecati, deleniti porro quae inventore delectus autem ipsam molestias neque nesciunt, temporibus similique. Dolorum, atque corporis corrupti voluptatibus laudantium et placeat voluptatem tempore. Placeat sunt voluptate accusantium numquam hic sapiente, dignissimos quia illum recusandae non possimus porro, neque quae quasi esse saepe delectus consectetur iusto, doloribus explicabo tenetur nesciunt earum perferendis! Facere iusto amet deleniti quis blanditiis, maiores reiciendis consequuntur magni quas, vero nihil aliquam tempora culpa odit repellendus porro quae nisi facilis sed. Nam temporibus, laudantium quae perferendis veritatis atque rerum nemo odio explicabo accusantium totam? Neque provident fugiat, fugit veniam distinctio temporibus voluptate aspernatur unde adipisci autem a. Odio, quod! Dolores harum eos odit officia autem perspiciatis quisquam in repudiandae. Molestiae rerum sequi expedita nisi ipsa molestias mollitia aspernatur. Sit autem aliquid quas dignissimos nemo quasi architecto dolores omnis nisi aspernatur, possimus voluptatibus debitis, quam ducimus repellendus eius blanditiis vero in voluptate vel nam asperiores exercitationem veniam. Mollitia distinctio sed laudantium, accusamus necessitatibus consectetur dolores odit natus porro, ipsam perspiciatis repudiandae molestias at vero eius dolorem reiciendis similique dignissimos debitis tenetur nisi sit! Et veritatis in esse tempore neque nemo quaerat soluta accusamus quibusdam eum. Qui a rem est dolorum velit optio natus accusamus id, autem commodi, dolor reprehenderit cupiditate odio hic incidunt modi, expedita nesciunt. Itaque deleniti quidem aspernatur nam, placeat nulla porro blanditiis a qui excepturi repudiandae labore esse alias quod vel, iusto debitis veritatis ratione temporibus velit molestiae necessitatibus architecto! Laborum voluptatum consequatur doloremque eos alias ullam, sunt voluptatibus pariatur ea cupiditate corrupti cum illo, quaerat perferendis eum placeat beatae, dolor fuga? Doloribus labore obcaecati quia, reiciendis sint accusamus aperiam quasi omnis commodi odio molestias laboriosam.</h1>
+                <button id="torna-su"
+                onclick="handleScrollTop()"
+                type="button" class="hidden p-2 bg-blue-600 text-white flex justify-center fixed bottom-5 right-5 rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m15 11.25-3-3m0 0-3 3m3-3v7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                  
+                </button>
+            </section>
+
+            <!--Pagina MODULO-->
+            <section id="pagina-modulo" class="hidden bg-gray-50 dark:bg-gray-900">
+                <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+                    <div class="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
+                        <h2 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                            Change Password
+                        </h2>
+                        <form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="#">
+                            <div>
+                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                                <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com">
+                            </div>
+                            <div>
+                                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New Password</label>
+                                <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
+                                <input type="text" name="confirm-password" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                  <input id="newsletter" aria-describedby="newsletter" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                  <label for="newsletter" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Reset passwod</button>
+                        </form>
+                    </div>
+                </div>
+              </section>
+        </main>
+      </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+    <script>
+        function navigateTo(page){
+            //mostrare contenuto corretto
+            //cambiare url mostrato
+            const main = document.querySelector('main')
+            const sections = main.querySelectorAll('section')
+            history.pushState({page}, null, page)
+            currentPage = page
+            
+            for(let section of sections){
+                if(section.id == page){
+                    section.classList.remove("hidden")
+                }else{
+                    section.classList.add("hidden")
+                }
+            }
+        }
+
+        function handleScrollTop(){
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          })
+        }
+
+        const sezione = document.getElementById("pagina-scroll")
+        const tornaSu = document.getElementById("torna-su")
+
+        let currentPage = "pagina-api"
+
+        window.addEventListener("scroll", function(){
+          if(currentPage == "pagina-scroll"){
+
+          const altezzaSezione = sezione.scrollHeight
+          const posizioneScroll = window.scrollY || window.pageYOffset
+
+          const percentualeScroll = (posizioneScroll / altezzaSezione) * 100
+
+          if(percentualeScroll >= 20){
+            tornaSu.classList.remove("hidden")
+          }else{
+            tornaSu.classList.add("hidden")
+          }
+        }
+        })
+
+
+        fetch('https://dog.ceo/api/breeds/image/random/20')
+        .then(response => response.json())
+        .then((data) => {
+          const paginaApi = document.getElementById("pagina-api")
+
+          data.message.forEach(imageSrc => {
+            const divContainer = document.createElement("div")
+            const img = document.createElement("img")
+            img.className = "h-auto max-w-full rounded-lg"
+            img.src = imageSrc
+            divContainer.appendChild(img)
+            paginaApi.appendChild(divContainer)
+          })
+        })
+
+
+        const form = document.querySelector("form")
+        form.addEventListener("submit", (e) => {
+          e.preventDefault()
+          const emailInput = document.getElementById("email")
+          const passwordInput = document.getElementById("password")
+          const confirmPsswInput = document.getElementById("confirm-password")
+          const newsletterInput = document.getElementById("newsletter")
+
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+          if(!emailRegex.test(emailInput.value)){
+            console.log("email non valida")
+            return
+          }
+
+          const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+          if(!passwordRegex.test(passwordInput.value)){
+            console.log("password non valida")
+            return
+          }
+
+          if(passwordInput.value !== confirmPsswInput.value){
+            console.log("le passwaord non coincidono")
+            return
+          }
+
+          if(!newsletterInput.checked){
+            console.log("accetta la newsletter")
+            return
+          }
+
+          console.log("yeeeeee daje")
+
+        })
+
+    </script>
+</body>
+</html>
